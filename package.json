@@ -1,0 +1,16 @@
+{
+  "name": "webpack-config-builder",
+  "version": "1.0.0",
+  "description": "Declarative config builder for webpack 4",
+  "main": "index.js",
+  "repository": "git@github.com:jayKayEss/webpack-config-builder.git",
+  "author": "Justin Sheckler <self@jaykayess.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "NODE_ENV=testing mocha --recursive",
+    "watch-tests": "NODE_ENV=testing mocha --recursive --watch"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  }
+}
