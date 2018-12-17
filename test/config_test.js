@@ -4,23 +4,29 @@ const Config = require('../src/index')
 
 let config = Config()
   .mode('production')
-  .unlessEnv('production', (config) => config.mode('development'))
-  .module((module) => module
-    .rule((rule) => rule
+  .unlessEnv('production', config => config.mode('development'))
+  .module(module => module
+    .rule(rule => rule
       .test(/\.css$/)
-      .ifEnv('development', (rule) => rule
-        .use((use) => use
+      .ifEnv('development', rule => rule
+        .use(use => use
           .loader('style-loader')
-          .options((options) => options
+          .options(options => options
             .set('sourceMaps', true)
           )
         )
       )
-      .use((use) => use
+      .use(use => use
         .loader('css-loader')
-        .options((options) => options
+        .options(options => options
           .set('sourceMaps', true)
         )
+      )
+    )
+    .rule(rule => rule
+      .test(/\.svg$/)
+      .use(use => use
+        .loader('svg-loader')
       )
     )
   )
@@ -38,8 +44,8 @@ describe('webpack-config-builder', function() {
     })
   })
 
-  describe('adding loaders', function() {
-    it('can add a loader with a test', function() {
+  describe('adding rules', function() {
+    it('can add a rules with a test', function() {
       let output = config.generate('production')
       let rule = {
         test: /\.css$/,
@@ -75,6 +81,15 @@ describe('webpack-config-builder', function() {
         ]
       }
       assert.deepEqual(output['module']['rules'][0], rule)
+    })
+
+    it('can append rules', function() {
+      let output = config.generate('production')
+      let rule = {
+        test: /\.svg$/,
+        use: [{ loader: 'svg-loader' }]
+      }
+      assert.deepEqual(output['module']['rules'][1], rule)
     })
   })
 })
