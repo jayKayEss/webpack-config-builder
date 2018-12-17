@@ -13,6 +13,7 @@ describe('Config', function() {
   propertyCanBeSet(Config, 'stats', 'errors-only')
 
   hasANestedObject(Config, 'output')
+  hasANestedObject(Config, 'module')
 
   conditionalsCanBeCalled(Config)
 })

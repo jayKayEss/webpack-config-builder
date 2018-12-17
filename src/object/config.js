@@ -4,6 +4,7 @@ const HasProperty = require('../trait/hasProperty')
 const HasObject = require('../trait/hasObject')
 const HasConditionals = require('../trait/hasConditionals')
 const Output = require('./output')
+const Module = require('./module')
 
 const DefaultConfig = (environment) => {
   return {}
@@ -21,6 +22,7 @@ const Config = (prev) => {
   instance.stats = HasProperty('stats', previous, Config)
 
   instance.output = HasObject('output', previous, Config, Output)
+  instance.module = HasObject('module', previous, Config, Module)
 
   instance.if = HasConditionals.IfFunc(previous, Config)
   instance.ifEnv = HasConditionals.IfEnv(previous, Config)
