@@ -3,7 +3,7 @@
 const HasProperty = (name, previous, Type) => {
   return (value) => {
     return Type((environment) => {
-      var data = previous(environment)
+      let data = previous(environment)
       data[name] = value
       return data
     })

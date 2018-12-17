@@ -3,7 +3,7 @@ const assert = require('assert')
 const conditionalsCanBeCalled = (Type) => {
   describe('#if()', function() {
     it('executes if true', function() {
-      var executed = false
+      let executed = false
       Type()
         .if(true, (type) => {
           executed = true
@@ -14,7 +14,7 @@ const conditionalsCanBeCalled = (Type) => {
     })
 
     it("doesn't execute if false", function() {
-      var executed = false
+      let executed = false
       Type()
         .if(false, (type) => {
           executed = true
@@ -27,7 +27,7 @@ const conditionalsCanBeCalled = (Type) => {
 
   describe('#ifEnv()', function() {
     it("matches the environment", function() {
-      var executed = false
+      let executed = false
       Type()
         .ifEnv('production', (type) => {
           executed = true
@@ -38,7 +38,7 @@ const conditionalsCanBeCalled = (Type) => {
     })
 
     it("doesn't match the environment", function() {
-      var executed = false
+      let executed = false
       Type()
         .ifEnv('production', (type) => {
           executed = true
@@ -51,7 +51,7 @@ const conditionalsCanBeCalled = (Type) => {
 
   describe('#unlessEnv()', function() {
     it("matches the environment", function() {
-      var executed = false
+      let executed = false
       Type()
         .unlessEnv('development', (type) => {
           executed = true
@@ -62,7 +62,7 @@ const conditionalsCanBeCalled = (Type) => {
     })
 
     it("doesn't match the environment", function() {
-      var executed = false
+      let executed = false
       Type()
         .unlessEnv('development', (type) => {
           executed = true

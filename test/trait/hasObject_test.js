@@ -5,7 +5,7 @@ const HasObject = require('../../src/trait/hasObject')
 
 describe('hasObject', function() {
   it('passes an object to the callback', function() {
-    var passed = undefined
+    let passed = undefined
     const previous = (environment) => {
       return {}
     }
@@ -27,7 +27,7 @@ describe('hasObject', function() {
       })
     }).generate()
 
-    var expected = {
+    let expected = {
       foo: {
         bar: 'baz'
       }

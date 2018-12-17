@@ -7,9 +7,9 @@ const DefaultConfig = (environment) => {
   return {}
 }
 
-const Output = (previous) => {
-  var previous = previous || DefaultConfig
-  var instance = BaseObject(previous)
+const Output = (prev) => {
+  let previous = prev || DefaultConfig
+  let instance = BaseObject(previous)
 
   instance.path = HasProperty('path', previous, Output)
   instance.filename = HasProperty('filename', previous, Output)

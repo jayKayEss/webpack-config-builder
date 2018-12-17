@@ -9,9 +9,9 @@ const DefaultConfig = (environment) => {
   return {}
 }
 
-const Config = (previous) => {
-  var previous = previous || DefaultConfig
-  var instance = BaseObject(previous)
+const Config = (prev) => {
+  let previous = prev || DefaultConfig
+  let instance = BaseObject(previous)
 
   instance.mode = HasProperty('mode', previous, Config)
   instance.entry = HasProperty('entry', previous, Config)

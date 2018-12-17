@@ -11,7 +11,7 @@ describe('HasConditionals', function() {
       }
       const ifFunc = HasConditionals.IfFunc(previous, BaseObject)
       const instance = ifFunc(true, (instance) => {
-          var data = instance.generate();
+          let data = instance.generate();
           assert.equal("Test Pending", data)
           return BaseObject((environment) => {
             return "Test OK"
@@ -41,7 +41,7 @@ describe('HasConditionals', function() {
       }
       const ifFunc = HasConditionals.IfEnv(previous, BaseObject)
       const instance = ifFunc('testing', (instance) => {
-          var data = instance.generate();
+          let data = instance.generate();
           assert.equal("Test Pending", data)
           return BaseObject((environment) => {
             return "Test OK"
@@ -84,7 +84,7 @@ describe('HasConditionals', function() {
       }
       const ifFunc = HasConditionals.UnlessEnv(previous, BaseObject)
       const instance = ifFunc('production', (instance) => {
-          var data = instance.generate();
+          let data = instance.generate();
           assert.equal("Test Pending", data)
           return BaseObject((environment) => {
             return "Test OK"
