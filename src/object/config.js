@@ -1,7 +1,9 @@
 "use strict"
-const BaseObject = require('./trait/baseObject')
-const HasProperty = require('./trait/hasProperty')
-const HasConditionals = require('./trait/hasConditionals')
+const BaseObject = require('../trait/baseObject')
+const HasProperty = require('../trait/hasProperty')
+const HasObject = require('../trait/hasObject')
+const HasConditionals = require('../trait/hasConditionals')
+const Output = require('./output')
 
 const DefaultConfig = (environment) => {
   return {}
@@ -17,6 +19,8 @@ const Config = (previous) => {
   instance.context = HasProperty('context', previous, Config)
   instance.target = HasProperty('target', previous, Config)
   instance.stats = HasProperty('stats', previous, Config)
+
+  instance.output = HasObject('output', previous, Config, Output)
 
   instance.if = HasConditionals.IfFunc(previous, Config)
   instance.ifEnv = HasConditionals.IfEnv(previous, Config)
