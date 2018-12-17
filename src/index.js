@@ -1,3 +1,3 @@
 const Config = require('./object/config')
 
-modules.exports = Config
+module.exports = Config
